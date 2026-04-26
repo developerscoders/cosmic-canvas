@@ -12,8 +12,8 @@ const colorMap = {
 export const Skills = () => {
   const [hover, setHover] = useState<{ name: string; level: number; color: string } | null>(null);
 
-  // Place each category on its own ring radius
-  const radii = [120, 185, 250, 315];
+  // Each category on its own ring radius (in px)
+  const radii = [130, 200, 270, 340];
 
   return (
     <section id="skills" className="relative py-32 overflow-hidden">
@@ -30,11 +30,11 @@ export const Skills = () => {
           <p className="mt-4 text-muted-foreground text-sm">Hover a star to see its signal.</p>
         </motion.div>
 
-        <div className="relative mx-auto" style={{ width: "min(720px, 92vw)", aspectRatio: "1 / 1" }}>
+        <div className="relative mx-auto" style={{ width: "min(780px, 94vw)", aspectRatio: "1 / 1" }}>
           {/* Iris */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div
-              className="w-40 h-40 md:w-56 md:h-56 rounded-full pulse-glow"
+              className="w-40 h-40 md:w-52 md:h-52 rounded-full pulse-glow"
               style={{
                 background:
                   "radial-gradient(circle at 50% 50%, hsl(41 100% 60%) 0%, hsl(41 100% 47% / 0.6) 18%, hsl(199 89% 64% / 0.5) 35%, hsl(236 100% 74% / 0.3) 55%, transparent 75%)",
@@ -52,84 +52,90 @@ export const Skills = () => {
                 <stop offset="1" stopColor="hsl(199 89% 64% / 0)" />
               </linearGradient>
             </defs>
-            <path
-              d="M 8 50 Q 50 12 92 50 Q 50 88 8 50 Z"
-              fill="none"
-              stroke="url(#eyeStroke)"
-              strokeWidth="0.4"
-            />
-            <path
-              d="M 14 50 Q 50 22 86 50 Q 50 78 14 50 Z"
-              fill="none"
-              stroke="hsl(236 100% 74% / 0.25)"
-              strokeWidth="0.25"
-            />
+            <path d="M 8 50 Q 50 12 92 50 Q 50 88 8 50 Z" fill="none" stroke="url(#eyeStroke)" strokeWidth="0.4" />
+            <path d="M 14 50 Q 50 22 86 50 Q 50 78 14 50 Z" fill="none" stroke="hsl(236 100% 74% / 0.25)" strokeWidth="0.25" />
           </svg>
 
-          {/* Orbit rings */}
+          {/* Static orbit rings + nodes (no spin so hover works reliably) */}
           {skillCategories.map((cat, ringIdx) => {
             const r = radii[ringIdx];
             const total = cat.skills.length;
+            const offset = (ringIdx * Math.PI) / 8; // stagger so labels don't overlap between rings
             return (
-              <div key={cat.name} className="absolute inset-0 flex items-center justify-center">
+              <div key={cat.name} className="absolute inset-0">
+                {/* ring outline */}
                 <div
-                  className="absolute rounded-full border"
+                  className="absolute left-1/2 top-1/2 rounded-full border pointer-events-none"
                   style={{
                     width: r * 2,
                     height: r * 2,
+                    transform: "translate(-50%, -50%)",
                     borderColor: `${colorMap[cat.color]}26`,
                   }}
                 />
-                <div
-                  className={`absolute ${ringIdx % 2 === 0 ? "spin-slow" : "spin-reverse"}`}
-                  style={{ width: r * 2, height: r * 2 }}
-                >
-                  {cat.skills.map((s, i) => {
-                    const angle = (i / total) * Math.PI * 2;
-                    const x = Math.cos(angle) * r;
-                    const y = Math.sin(angle) * r;
-                    return (
-                      <button
-                        key={s.name}
-                        onMouseEnter={() => setHover({ name: s.name, level: s.level, color: colorMap[cat.color] })}
-                        onMouseLeave={() => setHover(null)}
-                        onFocus={() => setHover({ name: s.name, level: s.level, color: colorMap[cat.color] })}
-                        onBlur={() => setHover(null)}
-                        className="absolute group"
+                {cat.skills.map((s, i) => {
+                  const angle = (i / total) * Math.PI * 2 + offset;
+                  const x = Math.cos(angle) * r;
+                  const y = Math.sin(angle) * r;
+                  const isActive = hover?.name === s.name;
+                  return (
+                    <button
+                      key={s.name}
+                      type="button"
+                      onMouseEnter={() => setHover({ name: s.name, level: s.level, color: colorMap[cat.color] })}
+                      onMouseLeave={() => setHover(null)}
+                      onFocus={() => setHover({ name: s.name, level: s.level, color: colorMap[cat.color] })}
+                      onBlur={() => setHover(null)}
+                      onClick={() => setHover({ name: s.name, level: s.level, color: colorMap[cat.color] })}
+                      className="absolute group flex items-center justify-center"
+                      style={{
+                        left: `calc(50% + ${x}px)`,
+                        top: `calc(50% + ${y}px)`,
+                        transform: "translate(-50%, -50%)",
+                        width: 36,
+                        height: 36,
+                      }}
+                      aria-label={`${s.name} — ${s.level}%`}
+                    >
+                      {/* invisible larger hit area is the button itself (36x36) */}
+                      <span
+                        className="block rounded-full transition-all duration-300"
                         style={{
-                          left: `calc(50% + ${x}px)`,
-                          top: `calc(50% + ${y}px)`,
-                          transform: "translate(-50%, -50%)",
+                          width: isActive ? 14 : 10,
+                          height: isActive ? 14 : 10,
+                          background: colorMap[cat.color],
+                          boxShadow: `0 0 10px ${colorMap[cat.color]}, 0 0 22px ${colorMap[cat.color]}80`,
                         }}
-                        aria-label={`${s.name} — ${s.level}%`}
+                      />
+                      <span
+                        className={`absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-widest transition-opacity duration-200 ${
+                          isActive ? "opacity-100 text-foreground" : "opacity-60 text-muted-foreground group-hover:opacity-100"
+                        }`}
+                        style={{ textShadow: isActive ? `0 0 8px ${colorMap[cat.color]}` : undefined }}
                       >
-                        <span
-                          className="block w-2.5 h-2.5 rounded-full transition-all duration-300 group-hover:scale-[2.2] group-focus:scale-[2.2]"
-                          style={{
-                            background: colorMap[cat.color],
-                            boxShadow: `0 0 10px ${colorMap[cat.color]}, 0 0 20px ${colorMap[cat.color]}80`,
-                          }}
-                        />
-                        <span
-                          className="absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-widest text-muted-foreground opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity"
-                        >
-                          {s.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
+                        {s.name}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             );
           })}
 
           {/* Hover panel */}
-          <div className="absolute inset-x-0 -bottom-4 flex justify-center pointer-events-none">
+          <div className="absolute inset-x-0 -bottom-6 flex justify-center pointer-events-none">
             <div
-              className={`glass rounded-full px-5 py-2.5 min-w-[240px] text-center transition-opacity duration-300 ${hover ? "opacity-100" : "opacity-0"}`}
+              className={`glass rounded-full px-6 py-3 min-w-[260px] text-center transition-all duration-300 ${
+                hover ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              }`}
             >
-              <div className="text-sm font-sora text-foreground">{hover?.name ?? "—"}</div>
-              <div className="mt-1.5 h-1 rounded-full bg-muted overflow-hidden">
+              <div className="flex items-center justify-between gap-4">
+                <span className="text-sm font-sora text-foreground">{hover?.name ?? "—"}</span>
+                <span className="text-xs tracking-widest" style={{ color: hover?.color ?? "hsl(199 89% 64%)" }}>
+                  {hover?.level ?? 0}%
+                </span>
+              </div>
+              <div className="mt-2 h-1 rounded-full bg-muted overflow-hidden">
                 <div
                   className="h-full transition-all duration-500"
                   style={{
@@ -144,7 +150,7 @@ export const Skills = () => {
         </div>
 
         {/* Category legend */}
-        <div className="mt-20 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs uppercase tracking-[0.25em]">
+        <div className="mt-24 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs uppercase tracking-[0.25em]">
           {skillCategories.map((c) => (
             <div key={c.name} className="flex items-center gap-2">
               <span
