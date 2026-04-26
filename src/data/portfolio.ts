@@ -3,8 +3,8 @@ export const profile = {
   title: "Software Engineer · Full-Stack Developer · AI Builder",
   email: "paburnwal123@gmail.com",
   phone: "+91-7340981451",
-  linkedin: "https://www.linkedin.com/in/pallav-burnwal",
-  github: "https://github.com/pallavburnwal",
+  linkedin: "https://www.linkedin.com/in/pallavburnwal",
+  github: "https://github.com/developercoders",
   summary:
     "Results-driven QA Automation Engineer and Software Developer with 2+ years of experience building scalable applications, automated testing frameworks, and conducting web security assessments. 1st place at HackWithUttarPradesh (200+ teams), 5★ HackerRank, and 70% reduction in testing effort through automation. Fluent in Java, Python, React.js, Spring Boot, with deep work in penetration testing, CI/CD, and AI-powered systems.",
   taglines: [
