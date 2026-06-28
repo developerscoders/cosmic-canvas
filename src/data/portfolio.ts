@@ -16,7 +16,7 @@ export const profile = {
 };
 
 export const stats = [
-  { label: "Years Experience", value: "2+" },
+  { label: "Projects Built", value: "7+" },
   { label: "HackWithUP", value: "1st / 200+" },
   { label: "HackerRank", value: "5★" },
   { label: "GPA", value: "3.7 / 4.0" },
