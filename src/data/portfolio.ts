@@ -37,7 +37,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Python", level: 90 },
       { name: "TypeScript", level: 85 },
       { name: "JavaScript", level: 88 },
-      { name: "C++", level: 78 },
       { name: "SQL", level: 82 },
     ],
   },
@@ -49,7 +48,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Next.js", level: 80 },
       { name: "Node.js", level: 82 },
       { name: "FastAPI", level: 85 },
-      { name: "Spring Boot", level: 86 },
       { name: "REST APIs", level: 90 },
     ],
   },
@@ -72,7 +70,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Vercel", level: 85 },
       { name: "Docker", level: 70 },
       { name: "Git", level: 92 },
-      { name: "Selenium", level: 90 },
       { name: "Postman", level: 88 },
       { name: "MongoDB", level: 82 },
       { name: "MySQL", level: 80 },
@@ -205,9 +202,7 @@ export const timeline = [
 
 export const achievements = [
   "1st Place — HackWithUttarPradesh Hackathon (200+ teams, 24-hr sprint, team lead)",
-  "5★ HackerRank — Problem Solving, Python, Java (Top 5% globally)",
+  "5★ HackerRank — Problem Solving, Python, Java ",
   "Microsoft Azure Fundamentals (AZ-900)",
-  "Certifications: Python for Data Science · AI & Development · Cybersecurity Foundations",
-  "500+ DSA problems solved across competitive platforms",
-  "Active open-source contributor with merged PRs on GitHub",
+  "Certifications: Python for Data Science · AI & Development · Cybersecurity Foundations"
 ];
