@@ -1,15 +1,15 @@
 export const profile = {
   name: "Pallav Burnwal",
-  title: "Software Engineer · Full-Stack Developer · AI Builder",
-  email: "paburnwal123@gmail.com",
+  title: "Full-Stack Developer · Python · FastAPI · React.js · AI Applications",
+  email: "pallavburnwal@gmail.com",
   phone: "+91-7340981451",
   linkedin: "https://www.linkedin.com/in/pallavburnwal",
   github: "https://github.com/developerscoders",
   summary:
-    "Results-driven QA Automation Engineer and Software Developer with 2+ years of experience building scalable applications, automated testing frameworks, and conducting web security assessments. 1st place at HackWithUttarPradesh (200+ teams), 5★ HackerRank, and 70% reduction in testing effort through automation. Fluent in Java, Python, React.js, Spring Boot, with deep work in penetration testing, CI/CD, and AI-powered systems.",
+    "Early-career Full-Stack Developer with 4 months of professional experience building scalable web applications, REST APIs, and AI-powered solutions. Skilled in Python, FastAPI, React.js, TypeScript, and MongoDB, with experience developing LLM-powered applications, computer vision solutions, and cloud-based deployments. Passionate about solving real-world problems, writing clean and efficient code, and collaborating with cross-functional teams. Seeking opportunities to contribute, grow, and build impactful software in a collaborative engineering environment.",
   taglines: [
     "Architecting systems from stardust.",
-    "Hackathon champion · 200+ teams defeated.",
+    "Full-stack engineer · AI applications builder.",
     "Where AI meets engineering rigor.",
     "Building software the universe would approve of.",
   ],
@@ -82,14 +82,33 @@ export const skillCategories: SkillCategory[] = [
 
 export const projects = [
   {
-    title: "AI Voice Caller Application",
+    title: "AI Real-Time Voice Caller System",
     year: "2025",
-    tech: ["Python", "FastAPI", "Deepgram AI", "Twilio", "MongoDB"],
+    tech: ["Python", "FastAPI", "Deepgram AI", "Twilio", "MongoDB", "WebSockets"],
     bullets: [
-      "Real-time AI-powered voice calling system that initiates and manages automated phone calls.",
-      "Integrated Deepgram for natural voice synthesis and STT with 95% accuracy.",
-      "Built FastAPI backend handling concurrent voice sessions with sub-500ms latency.",
-      "MongoDB schema for call logs, conversation history, and user data with efficient indexing.",
+      "Real-time voice AI integrating Deepgram for speech recognition and synthesis with Twilio for telephony.",
+      "Asynchronous FastAPI backend with WebSocket support for concurrent voice sessions.",
+      "MongoDB-based conversation history management with efficient indexing.",
+    ],
+  },
+  {
+    title: "BillKaro — GST Billing & Invoice Management Platform",
+    year: "2025",
+    tech: ["Java 17", "Spring Boot", "MongoDB", "JWT", "React Native (Expo)", "Razorpay", "iText PDF"],
+    bullets: [
+      "Full-stack GST billing platform for Indian small businesses with secure auth, customer/product management, invoicing, and payment tracking.",
+      "REST APIs with Spring Boot + MongoDB, JWT authentication, and downloadable PDF invoices via iText.",
+      "Subscription and payment workflows powered by Razorpay.",
+      "Cross-platform mobile app in React Native (Expo) with dashboard analytics and WhatsApp invoice sharing.",
+    ],
+  },
+  {
+    title: "DevForge — Multi-Agent AI Development Platform",
+    year: "2025",
+    tech: ["NVIDIA NIM", "OpenRouter", "React.js", "FastAPI", "Redis", "Docker"],
+    bullets: [
+      "Collaborative AI dev platform orchestrating multiple LLM agents for code generation, review, and documentation.",
+      "WebSocket streaming, Redis-based state management, and Dockerized services for scalable workflows.",
     ],
   },
   {
@@ -139,16 +158,15 @@ export const projects = [
 export const timeline = [
   {
     kind: "work" as const,
-    role: "QA Automation Engineer & Web Security Tester",
+    role: "Full-Stack Developer",
     org: "Hrfy.AI (HR For You)",
     location: "Kharar, Punjab",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – May 2026",
     bullets: [
-      "Selenium WebDriver automation framework — reduced manual testing by 70%.",
-      "100+ automated test scripts; 85% coverage.",
-      "Penetration testing with Nmap, Burp Suite, OWASP ZAP.",
-      "Identified 50+ critical vulnerabilities (XSS, CSRF, NoSQL injection).",
-      "CI/CD with Jenkins for quality-gated deployments.",
+      "Built recruitment features across frontend and backend using React.js, FastAPI, and MongoDB.",
+      "Developed RESTful APIs for candidate management, authentication, and application workflows.",
+      "Implemented features for VedaGPT — an LLM-powered recruitment chatbot for job search guidance.",
+      "Assisted in building an AI interview platform with LiveKit for real-time audio/video and automated evaluation.",
     ],
   },
   {
@@ -186,9 +204,10 @@ export const timeline = [
 ];
 
 export const achievements = [
-  "5★ HackerRank — Problem Solving, Python, Java, C++ (Top 5% globally)",
-  "1st Place — HackWithUttarPradesh (1 of 200+ teams)",
-  "Cybersecurity Foundations · Deloitte Tech Simulation · Azure Fundamentals",
+  "1st Place — HackWithUttarPradesh Hackathon (200+ teams, 24-hr sprint, team lead)",
+  "5★ HackerRank — Problem Solving, Python, Java (Top 5% globally)",
+  "Microsoft Azure Fundamentals (AZ-900)",
+  "Certifications: Python for Data Science · AI & Development · Cybersecurity Foundations",
   "500+ DSA problems solved across competitive platforms",
   "Active open-source contributor with merged PRs on GitHub",
 ];
