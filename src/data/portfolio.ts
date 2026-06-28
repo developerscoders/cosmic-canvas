@@ -82,14 +82,33 @@ export const skillCategories: SkillCategory[] = [
 
 export const projects = [
   {
-    title: "AI Voice Caller Application",
+    title: "AI Real-Time Voice Caller System",
     year: "2025",
-    tech: ["Python", "FastAPI", "Deepgram AI", "Twilio", "MongoDB"],
+    tech: ["Python", "FastAPI", "Deepgram AI", "Twilio", "MongoDB", "WebSockets"],
     bullets: [
-      "Real-time AI-powered voice calling system that initiates and manages automated phone calls.",
-      "Integrated Deepgram for natural voice synthesis and STT with 95% accuracy.",
-      "Built FastAPI backend handling concurrent voice sessions with sub-500ms latency.",
-      "MongoDB schema for call logs, conversation history, and user data with efficient indexing.",
+      "Real-time voice AI integrating Deepgram for speech recognition and synthesis with Twilio for telephony.",
+      "Asynchronous FastAPI backend with WebSocket support for concurrent voice sessions.",
+      "MongoDB-based conversation history management with efficient indexing.",
+    ],
+  },
+  {
+    title: "BillKaro — GST Billing & Invoice Management Platform",
+    year: "2025",
+    tech: ["Java 17", "Spring Boot", "MongoDB", "JWT", "React Native (Expo)", "Razorpay", "iText PDF"],
+    bullets: [
+      "Full-stack GST billing platform for Indian small businesses with secure auth, customer/product management, invoicing, and payment tracking.",
+      "REST APIs with Spring Boot + MongoDB, JWT authentication, and downloadable PDF invoices via iText.",
+      "Subscription and payment workflows powered by Razorpay.",
+      "Cross-platform mobile app in React Native (Expo) with dashboard analytics and WhatsApp invoice sharing.",
+    ],
+  },
+  {
+    title: "DevForge — Multi-Agent AI Development Platform",
+    year: "2025",
+    tech: ["NVIDIA NIM", "OpenRouter", "React.js", "FastAPI", "Redis", "Docker"],
+    bullets: [
+      "Collaborative AI dev platform orchestrating multiple LLM agents for code generation, review, and documentation.",
+      "WebSocket streaming, Redis-based state management, and Dockerized services for scalable workflows.",
     ],
   },
   {
