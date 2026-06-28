@@ -204,9 +204,10 @@ export const timeline = [
 ];
 
 export const achievements = [
-  "5★ HackerRank — Problem Solving, Python, Java, C++ (Top 5% globally)",
-  "1st Place — HackWithUttarPradesh (1 of 200+ teams)",
-  "Cybersecurity Foundations · Deloitte Tech Simulation · Azure Fundamentals",
+  "1st Place — HackWithUttarPradesh Hackathon (200+ teams, 24-hr sprint, team lead)",
+  "5★ HackerRank — Problem Solving, Python, Java (Top 5% globally)",
+  "Microsoft Azure Fundamentals (AZ-900)",
+  "Certifications: Python for Data Science · AI & Development · Cybersecurity Foundations",
   "500+ DSA problems solved across competitive platforms",
   "Active open-source contributor with merged PRs on GitHub",
 ];
