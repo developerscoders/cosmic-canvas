@@ -1,15 +1,15 @@
 export const profile = {
   name: "Pallav Burnwal",
-  title: "Software Engineer · Full-Stack Developer · AI Builder",
-  email: "paburnwal123@gmail.com",
+  title: "Full-Stack Developer · Python · FastAPI · React.js · AI Applications",
+  email: "pallavburnwal@gmail.com",
   phone: "+91-7340981451",
   linkedin: "https://www.linkedin.com/in/pallavburnwal",
   github: "https://github.com/developerscoders",
   summary:
-    "Results-driven QA Automation Engineer and Software Developer with 2+ years of experience building scalable applications, automated testing frameworks, and conducting web security assessments. 1st place at HackWithUttarPradesh (200+ teams), 5★ HackerRank, and 70% reduction in testing effort through automation. Fluent in Java, Python, React.js, Spring Boot, with deep work in penetration testing, CI/CD, and AI-powered systems.",
+    "Early-career Full-Stack Developer with 4 months of professional experience building scalable web applications, REST APIs, and AI-powered solutions. Skilled in Python, FastAPI, React.js, TypeScript, and MongoDB, with experience developing LLM-powered applications, computer vision solutions, and cloud-based deployments. Passionate about solving real-world problems, writing clean and efficient code, and collaborating with cross-functional teams. Seeking opportunities to contribute, grow, and build impactful software in a collaborative engineering environment.",
   taglines: [
     "Architecting systems from stardust.",
-    "Hackathon champion · 200+ teams defeated.",
+    "Full-stack engineer · AI applications builder.",
     "Where AI meets engineering rigor.",
     "Building software the universe would approve of.",
   ],
