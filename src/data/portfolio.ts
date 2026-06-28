@@ -158,16 +158,15 @@ export const projects = [
 export const timeline = [
   {
     kind: "work" as const,
-    role: "QA Automation Engineer & Web Security Tester",
+    role: "Full-Stack Developer",
     org: "Hrfy.AI (HR For You)",
     location: "Kharar, Punjab",
-    period: "Jan 2026 – Present",
+    period: "Jan 2026 – May 2026",
     bullets: [
-      "Selenium WebDriver automation framework — reduced manual testing by 70%.",
-      "100+ automated test scripts; 85% coverage.",
-      "Penetration testing with Nmap, Burp Suite, OWASP ZAP.",
-      "Identified 50+ critical vulnerabilities (XSS, CSRF, NoSQL injection).",
-      "CI/CD with Jenkins for quality-gated deployments.",
+      "Built recruitment features across frontend and backend using React.js, FastAPI, and MongoDB.",
+      "Developed RESTful APIs for candidate management, authentication, and application workflows.",
+      "Implemented features for VedaGPT — an LLM-powered recruitment chatbot for job search guidance.",
+      "Assisted in building an AI interview platform with LiveKit for real-time audio/video and automated evaluation.",
     ],
   },
   {
