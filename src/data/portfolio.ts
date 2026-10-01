@@ -1,22 +1,18 @@
 export const profile = {
   name: "Pallav Burnwal",
-  title: "Full-Stack Developer · Python · FastAPI · React.js · AI Applications",
+  title: "Full-Stack Developer & AI/ML Engineer",
+  heroTagline: "9 months building scalable APIs, real-time AI systems and production web apps.",
   email: "pallavburnwal@gmail.com",
   phone: "+91-7340981451",
   linkedin: "https://www.linkedin.com/in/pallavburnwal",
   github: "https://github.com/developerscoders",
   summary:
-    "Early-career Full-Stack Developer with 4 months of professional experience building scalable web applications, REST APIs, and AI-powered solutions. Skilled in Python, FastAPI, React.js, TypeScript, and MongoDB, with experience developing LLM-powered applications, computer vision solutions, and cloud-based deployments. Passionate about solving real-world problems, writing clean and efficient code, and collaborating with cross-functional teams. Seeking opportunities to contribute, grow, and build impactful software in a collaborative engineering environment.",
-  taglines: [
-    "Architecting systems from stardust.",
-    "Full-stack engineer · AI applications builder.",
-    "Where AI meets engineering rigor.",
-    "Building software the universe would approve of.",
-  ],
+    "Full-Stack Developer with 9 months of experience in Python (FastAPI), Java (Spring Boot), React.js/TypeScript and MongoDB/MySQL. I also build YOLOv8 computer-vision models, real-time audio/video pipelines with LiveKit and WebSockets, and multi-agent LLM workflows. I deploy on AWS, Azure and Docker, with a focus on clean, low-latency systems.",
+  taglines: ["Full-Stack Developer", "AI/ML Engineer", "Computer Vision & LLM Builder"],
 };
 
 export const stats = [
-  { label: "Projects Built", value: "7+" },
+  { label: "Professional Experience", value: "9 months" },
   { label: "HackWithUP", value: "1st / 200+" },
   { label: "HackerRank", value: "5★" },
   { label: "GPA", value: "3.7 / 4.0" },
@@ -28,126 +24,66 @@ export type SkillCategory = {
   skills: { name: string; level: number }[];
 };
 
+const skills = (names: string[]) => names.map((name) => ({ name, level: 100 }));
+
 export const skillCategories: SkillCategory[] = [
-  {
-    name: "Languages",
-    color: "ice",
-    skills: [
-      { name: "Java", level: 92 },
-      { name: "Python", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "JavaScript", level: 88 },
-      { name: "SQL", level: 82 },
-    ],
-  },
-  {
-    name: "Web",
-    color: "violet",
-    skills: [
-      { name: "React.js", level: 90 },
-      { name: "Next.js", level: 80 },
-      { name: "Node.js", level: 82 },
-      { name: "FastAPI", level: 85 },
-      { name: "REST APIs", level: 90 },
-    ],
-  },
-  {
-    name: "AI / APIs",
-    color: "amber",
-    skills: [
-      { name: "Deepgram AI", level: 82 },
-      { name: "OpenAI", level: 80 },
-      { name: "Twilio", level: 78 },
-      { name: "Real-time Voice", level: 80 },
-    ],
-  },
-  {
-    name: "Cloud · DevOps · Tools",
-    color: "foreground",
-    skills: [
-      { name: "Azure", level: 75 },
-      { name: "AWS", level: 70 },
-      { name: "Vercel", level: 85 },
-      { name: "Docker", level: 70 },
-      { name: "Git", level: 92 },
-      { name: "Postman", level: 88 },
-      { name: "MongoDB", level: 82 },
-      { name: "MySQL", level: 80 },
-    ],
-  },
+  { name: "Languages", color: "ice", skills: skills(["Python", "JavaScript", "TypeScript", "Java", "SQL"]) },
+  { name: "Backend", color: "violet", skills: skills(["FastAPI", "Spring Boot", "Node.js", "REST", "Microservices", "WebSockets", "Pydantic"]) },
+  { name: "Frontend", color: "amber", skills: skills(["React", "Next.js", "React Native", "Tailwind"]) },
+  { name: "AI / ML", color: "foreground", skills: skills(["YOLOv8", "OpenCV", "MediaPipe", "DeepFace", "Prompt Engineering", "Multi-Agent AI", "RAG", "NLP", "Vector Search", "OpenAI API", "NVIDIA NIM", "OpenRouter"]) },
+  { name: "Speech / Realtime", color: "ice", skills: skills(["Deepgram", "LiveKit", "Twilio"]) },
+  { name: "Databases & DevOps", color: "violet", skills: skills(["MongoDB", "MySQL", "Redis", "AWS", "Azure", "Docker", "GitHub Actions", "Vercel"]) },
+  { name: "Testing / Security", color: "amber", skills: skills(["PyTest", "unittest", "Postman", "OWASP ZAP", "Burp Suite"]) },
 ];
 
-export const projects = [
-  {
-    title: "AI Real-Time Voice Caller System",
-    year: "2025",
-    tech: ["Python", "FastAPI", "Deepgram AI", "Twilio", "MongoDB", "WebSockets"],
-    bullets: [
-      "Real-time voice AI integrating Deepgram for speech recognition and synthesis with Twilio for telephony.",
-      "Asynchronous FastAPI backend with WebSocket support for concurrent voice sessions.",
-      "MongoDB-based conversation history management with efficient indexing.",
-    ],
-  },
-  {
-    title: "BillKaro — GST Billing & Invoice Management Platform",
-    year: "2025",
-    tech: ["Java 17", "Spring Boot", "MongoDB", "JWT", "React Native (Expo)", "Razorpay", "iText PDF"],
-    bullets: [
-      "Full-stack GST billing platform for Indian small businesses with secure auth, customer/product management, invoicing, and payment tracking.",
-      "REST APIs with Spring Boot + MongoDB, JWT authentication, and downloadable PDF invoices via iText.",
-      "Subscription and payment workflows powered by Razorpay.",
-      "Cross-platform mobile app in React Native (Expo) with dashboard analytics and WhatsApp invoice sharing.",
-    ],
-  },
+export type Project = {
+  title: string;
+  year: string;
+  tech: string[];
+  bullets: string[];
+  github?: string;
+  live?: string;
+};
+
+export const projects: Project[] = [
   {
     title: "DevForge — Multi-Agent AI Development Platform",
-    year: "2025",
-    tech: ["NVIDIA NIM", "OpenRouter", "React.js", "FastAPI", "Redis", "Docker"],
+    year: "Multi-Agent AI",
+    tech: ["React", "FastAPI", "Redis", "Docker", "WebSockets", "Tailwind"],
     bullets: [
-      "Collaborative AI dev platform orchestrating multiple LLM agents for code generation, review, and documentation.",
-      "WebSocket streaming, Redis-based state management, and Dockerized services for scalable workflows.",
+      "Dockerized orchestration of coder, reviewer and testing LLM agents through FastAPI and Redis Pub/Sub.",
+      "Delivered sub-200ms streaming and reduced concurrent task latency by 35%.",
+      "Benchmarked NVIDIA NIM against OpenRouter to optimize model selection.",
     ],
   },
   {
-    title: "LinkedIn Automation Tool",
-    year: "2025",
-    tech: ["Python", "Selenium", "MongoDB"],
+    title: "Uvilox AI — Real-Time Voice Caller",
+    year: "Voice AI",
+    tech: ["Python", "FastAPI", "Twilio", "Deepgram", "WebSockets", "MongoDB"],
     bullets: [
-      "Automation framework for authentication, connection management, and messaging.",
-      "Cookie-based session persistence across runs.",
-      "Intelligent connection requests with custom filters and follow-up flows.",
-      "Human-like rate limiting and randomised delays to avoid detection.",
+      "Built a FastAPI telephony engine with Twilio WebSockets and Deepgram STT/TTS.",
+      "Achieved under 800ms end-to-end audio interaction with stable bi-directional buffering.",
+      "Persisted transcripts and multi-turn conversation context in MongoDB.",
     ],
   },
   {
-    title: "AI Startup Solution — HackWithUttarPradesh Winner",
-    year: "2025",
-    tech: ["Python", "React", "MongoDB", "ML"],
+    title: "BillKaro — GST Billing Platform",
+    year: "Full-Stack",
+    tech: ["Java 17", "Spring Boot", "MongoDB", "JWT", "Razorpay", "iText", "React Native"],
     bullets: [
-      "1st place out of 200+ teams at the state-level hackathon.",
-      "Led a 4-person team through ideation, build, and pitch in 24 hours.",
-      "Integrated ML models into a full-stack product and presented to industry judges.",
+      "Built GST billing, secure authentication, automated tax calculations and invoice lifecycle management.",
+      "Integrated Razorpay payments and generated downloadable PDF invoices with iText.",
+      "Created an Expo mobile app with analytics and WhatsApp invoice sharing.",
     ],
   },
   {
-    title: "Full-Stack Student Tracker",
-    year: "2024",
-    tech: ["Spring Boot", "React.js", "MySQL"],
+    title: "Proctoring & Cheat-Detection Model",
+    year: "Computer Vision",
+    tech: ["YOLOv8", "OpenCV", "Label Studio", "FastAPI"],
     bullets: [
-      "Academic management platform with role-based access for students, faculty, admins.",
-      "20+ Spring Boot REST endpoints for CRUD operations.",
-      "Real-time grade tracking and attendance dashboards.",
-      "Cloud deployed with automated backups, 99.9% uptime.",
-    ],
-  },
-  {
-    title: "Secure Banking Application",
-    year: "2024",
-    tech: ["Java", "Spring Boot", "MySQL"],
-    bullets: [
-      "Multi-tier banking system with transactions, accounts, and fund transfers.",
-      "SQL injection prevention, XSS protection, encrypted storage.",
-      "Concurrent transaction handling with database locks.",
+      "Curated, annotated and augmented custom datasets for restricted-object and behavior detection.",
+      "Trained and deployed optimized YOLOv8 weights for low-latency live inference.",
+      "Reduced automated proctoring false positives by 22% in live interview workflows.",
     ],
   },
 ];
@@ -155,54 +91,50 @@ export const projects = [
 export const timeline = [
   {
     kind: "work" as const,
-    role: "Full-Stack Developer",
-    org: "Hrfy.AI (HR For You)",
-    location: "Kharar, Punjab",
+    role: "Full-Stack Developer (AI/ML)",
+    org: "Hrfy.AI",
+    location: "Kharar",
     period: "Jan 2026 – May 2026",
     bullets: [
-      "Built recruitment features across frontend and backend using React.js, FastAPI, and MongoDB.",
-      "Developed RESTful APIs for candidate management, authentication, and application workflows.",
-      "Implemented features for VedaGPT — an LLM-powered recruitment chatbot for job search guidance.",
-      "Assisted in building an AI interview platform with LiveKit for real-time audio/video and automated evaluation.",
+      "Built recruitment workflows with React, FastAPI and MongoDB, including secure REST APIs.",
+      "Delivered LiveKit and WebSocket audio/video interview sessions for automated evaluation.",
+      "Trained and deployed a custom YOLOv8 cheat-detection model using Label Studio, cutting proctoring false positives by 22%.",
+      "Tuned prompts for the VedaGPT recruitment assistant and translated Figma designs into production features.",
     ],
   },
   {
     kind: "work" as const,
     role: "Software Developer Intern",
-    org: "Hrfy.AI (HR For You)",
-    location: "Kharar, Punjab",
+    org: "Hrfy.AI",
+    location: "Kharar",
     period: "Sep 2025 – Dec 2025",
     bullets: [
-      "AI-powered recruitment automation — 30% screening efficiency lift.",
-      "FastAPI + Node.js REST APIs handling 1000+ daily requests.",
-      "40% page-load improvement through code refactoring.",
+      "Built FastAPI and MongoDB resume-parsing and NLP services, improving extraction speed by 30%.",
+      "Introduced lazy loading and reusable React components.",
+      "Developed responsive React and TypeScript interfaces from product designs.",
     ],
   },
   {
-    kind: "work" as const,
-    role: "Software Development Intern",
-    org: "CodeAlpha",
-    location: "Sas Nagar, Punjab",
-    period: "Sep 2024 – Sep 2025",
-    bullets: [
-      "Built 3 production Java apps (Student Tracker, Banking, Hotel) — 500+ users.",
-      "MySQL schemas with 15+ normalized tables.",
-      "JWT auth, MVC, Singleton & Factory patterns.",
-    ],
+    kind: "edu" as const,
+    role: "MCA (AI/ML)",
+    org: "Vellore Institute of Technology",
+    location: "Vellore",
+    period: "Aug 2026 – Present",
+    bullets: ["Postgraduate study focused on artificial intelligence and machine learning."],
   },
   {
     kind: "edu" as const,
     role: "Bachelor of Computer Applications (BCA)",
     org: "Chandigarh University",
-    location: "Kharar, Punjab",
-    period: "Aug 2023 – Jul 2026",
-    bullets: ["GPA 3.7 / 4.0", "DSA · DBMS · OOP · Software Engineering"],
+    location: "Kharar",
+    period: "Aug 2023 – May 2026",
+    bullets: ["GPA 3.7 / 4.0"],
   },
 ];
 
 export const achievements = [
-  "1st Place — HackWithUttarPradesh Hackathon (200+ teams, 24-hr sprint, team lead)",
-  "5★ HackerRank — Problem Solving, Python, Java ",
+  "1st Place — HackWithUttarPradesh Hackathon (200+ teams, team lead)",
+  "5-Star HackerRank — Python, Problem Solving and Java",
   "Microsoft Azure Fundamentals (AZ-900)",
-  "Certifications: Python for Data Science · AI & Development · Cybersecurity Foundations"
+  "Python for Data Science certification",
 ];

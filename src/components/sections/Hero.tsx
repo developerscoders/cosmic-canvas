@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ChevronDown, Download, Mail } from "lucide-react";
 import { profile } from "@/data/portfolio";
 import { StarField } from "@/components/cosmos/StarField";
 import { TypedTagline } from "@/components/cosmos/TypedTagline";
+import fullStackResume from "@/assets/Pallav_Full_Stack.pdf.asset.json";
+import aiMlResume from "@/assets/Pallav_AI_Ml_Engineer.pdf.asset.json";
 
 export const Hero = () => {
   return (
@@ -46,7 +48,7 @@ export const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-6 font-sora text-sm md:text-base tracking-[0.3em] text-foreground/80 uppercase"
+          className="mt-6 font-sora text-sm md:text-base tracking-[0.18em] text-foreground/80 uppercase"
         >
           {profile.title}
         </motion.p>
@@ -60,19 +62,39 @@ export const Hero = () => {
           <TypedTagline phrases={profile.taglines} />
         </motion.div>
 
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.15 }}
+          className="mx-auto mt-4 max-w-2xl font-sora text-sm leading-relaxed text-muted-foreground md:text-base"
+        >
+          {profile.heroTagline}
+        </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
-          className="mt-12"
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
         >
           <a
-            href="#about"
-            className="group inline-flex items-center gap-3 px-8 py-3.5 rounded-full glass text-foreground font-sora text-sm tracking-[0.25em] uppercase hover:border-ice/60 transition-all duration-500 hover:scale-105"
+            href="#projects"
+            className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ice/40 bg-ice/10 px-6 py-3 font-sora text-xs uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:scale-105 hover:border-ice/80"
           >
-            <span>Explore the Universe</span>
-            <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+            View Projects
           </a>
+          <a href="#contact" className="inline-flex min-h-12 items-center gap-2 rounded-full glass px-6 py-3 font-sora text-xs uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:scale-105 hover:border-ice/60">
+            <Mail className="h-4 w-4" /> Contact
+          </a>
+          <details className="group relative">
+            <summary className="inline-flex min-h-12 cursor-pointer list-none items-center gap-2 rounded-full glass px-6 py-3 font-sora text-xs uppercase tracking-[0.16em] text-foreground transition-all duration-300 hover:border-ice/60 [&::-webkit-details-marker]:hidden">
+              <Download className="h-4 w-4" /> Download Resume <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="absolute left-1/2 top-full z-20 mt-2 w-56 -translate-x-1/2 overflow-hidden rounded-lg border border-ice/20 bg-background/95 p-1.5 text-left shadow-xl backdrop-blur-xl">
+              <a href={fullStackResume.url} download="Pallav_Burnwal_Full_Stack_Resume.pdf" className="block rounded-md px-3 py-2.5 text-sm text-foreground/85 transition-colors hover:bg-ice/10 hover:text-foreground">Full-Stack Resume</a>
+              <a href={aiMlResume.url} download="Pallav_Burnwal_AI_ML_Resume.pdf" className="block rounded-md px-3 py-2.5 text-sm text-foreground/85 transition-colors hover:bg-ice/10 hover:text-foreground">AI-ML Resume</a>
+            </div>
+          </details>
         </motion.div>
       </div>
 
