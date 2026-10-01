@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X } from "lucide-react";
+import { ExternalLink, Github, X } from "lucide-react";
 import { projects } from "@/data/portfolio";
 
 /**
@@ -259,6 +259,20 @@ export const Projects = () => {
                     </li>
                   ))}
                 </ul>
+                {(projects[active].github || projects[active].live) && (
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {projects[active].github && (
+                      <a href={projects[active].github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-ice hover:text-foreground">
+                        <Github className="h-4 w-4" /> GitHub
+                      </a>
+                    )}
+                    {projects[active].live && (
+                      <a href={projects[active].live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-ice hover:text-foreground">
+                        <ExternalLink className="h-4 w-4" /> Live project
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             )}
           </AnimatePresence>
